@@ -1,0 +1,15 @@
+version: "3"
+services:
+  wifi-cp-backend:
+    image: isurunuwanthilaka/wificpbackend:latest
+    network_mode: bridge
+    container_name: wifi-cp-backend
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    links:
+      - postgres
